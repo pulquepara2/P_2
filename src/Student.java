@@ -126,6 +126,14 @@ public class Student {
             System.out.println(classes[i]);
         }
     }
+    public void printStudyDays(){
+        System.out.println("Student " + this.lastName + " hat Kurse am: " );
+        for (int i = 0; i < classes.length; i++) {
+            if(classes[i] != null){
+                System.out.println(classes[i].getTag() + " (" + classes[i].getName() + " )");
+            }
 
+        }
+    }
 
 }

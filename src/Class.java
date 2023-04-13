@@ -37,11 +37,16 @@ public class Class {
         this.enrolledStudents = enrolledStudents;
     }
 
-    public Class(String name, int hours, int maxCapacity, int enrolledStudents) {
+    public Class(String name, int hours, int maxCapacity, int enrolledStudent, Wochentag tag) {
         this.name = name;
         this.hours = hours;
         this.maxCapacity = maxCapacity;
         this.enrolledStudents = 0;
+        this.tag = tag;
+    }
+
+    public Wochentag getTag() {
+        return tag;
     }
 
     public int enroll() {

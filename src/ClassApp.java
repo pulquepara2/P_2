@@ -2,9 +2,10 @@ public class ClassApp {
     public static void main(String[] args) {
 
 
-        Class cl = new Class("P2", 20, 15, 10);
+        Class cl = new Class("P2", 20, 15, 10, Wochentag.MONTAG);
         cl.enroll();
         System.out.println(cl.maxCapacityReached());
+        Class cl1= new Class("Modelle", 15,14, 13, Wochentag.MITTWOCH);
 
         Student s = new Student("Hansi", "Huber");
         Student s1 = new Student("Liese", "Lotte");
@@ -21,5 +22,8 @@ public class ClassApp {
 
         System.out.println(s1.getId());
         System.out.println(String.format("%03d", s2.getId()));
+        s.printClasses();
+        s.printStudyDays();
+
     }
 }
