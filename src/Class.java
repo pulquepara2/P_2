@@ -57,6 +57,7 @@ public class Class {
     public boolean maxCapacityReached() {
         return enrolledStudents >= maxCapacity;
     }
+
 }
 
 

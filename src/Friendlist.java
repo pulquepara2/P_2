@@ -1,3 +1,4 @@
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class Friendlist {
         //    System.out.println(friends.get(i));
 
     }
+
     public void print(ArrayList<Friend> friends) {
         for (Friend f : friends) {
             System.out.println(f);
@@ -39,6 +41,38 @@ public class Friendlist {
         }
         return result;
     }
+
+    public Friend findOldestFriend() {
+        int year = Year.now().getValue();
+        Friend oldestfriend = friends.get(0);
+        int howLong = year - friends.get(0).getKnownSince();
+        for (int i = 0; i < friends.size(); i++) {
+            if ((year - friends.get(i).getKnownSince()) > howLong) {
+                howLong = year - friends.get(i).getKnownSince();
+                oldestfriend = friends.get(i);
+            }
+        }
+        return oldestfriend;
+    }
+
+    public void removeFriend(Friend f) {
+        friends.remove(f);
+    }
+
+    public ArrayList<Friend> friendsAbroad (String country) {
+        ArrayList<Friend> result = new ArrayList<>();
+        for (int i = 0; i < friends.size(); i++) {
+            if (!friends.get(i).getCountry().equals(country)) {
+                result.add(friends.get(i));
+            }
+
+        }
+        return result;
+    }
+
+
 }
+
+
 
 
