@@ -67,8 +67,18 @@ public class Friendlist {
             }
 
         }
+        // Alternativ mit for each:
+       // for(Friend f: friends){
+        //    if(!f.getCountry().equals(country)){
+         //       result.add(f);
+          //  }
+       // }
         return result;
     }
+
+
+
+
 
 
 }
