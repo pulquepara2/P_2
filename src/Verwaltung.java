@@ -21,11 +21,5 @@ public class Verwaltung {
      return result;
     }
 
-    public int getPointsPerTeam(Team team){
-        int pointsperTeam = 0;
 
-    }
-    public Player getWinner(){
-
-    }
 }
