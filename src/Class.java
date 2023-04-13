@@ -3,6 +3,7 @@ public class Class {
     private int hours;
     private int maxCapacity;
     private int enrolledStudents;
+    private Wochentag tag;
 
     public String getName() {
         return name;
