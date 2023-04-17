@@ -1,24 +1,39 @@
+import java.util.Objects;
+
 public class Friend {
-    private String friend;
+    private String name;
     private int age;
     private String city;
     private String country;
     private int knownSince;
 
-    public Friend(String friend, int age, String city, String country, int knownSince) {
-        this.friend = friend;
+    public Friend(String name, int age, String city, String country, int knownSince) {
+        this.name = name;
         this.age = age;
         this.city = city;
         this.country = country;
         this.knownSince = knownSince;
     }
 
-    public String getFriend() {
-        return friend;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Friend friend = (Friend) o;
+        return age == friend.age && name.equals(friend.name);
     }
 
-    public void setFriend(String friend) {
-        this.friend = friend;
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -57,11 +72,12 @@ public class Friend {
     @Override
     public String toString() {
         return "Friend{" +
-                "friend='" + friend + '\'' +
+                "friend='" + name + '\'' +
                 ", age=" + age +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 ", knownSince=" + knownSince +
                 '}';
     }
+
 }

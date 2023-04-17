@@ -9,9 +9,10 @@ public class EventDemo {
         kalender.add(new Event("NocheinEvent", Eventtype.VORTRAG, "Graz", 102));
 
         System.out.println("Kalender:");
-        kalender.print();
+
         System.out.println("nach Ort");
         System.out.println(kalender.getByOrt("Graz"));
+
         System.out.println("nach Typ");
 
         ArrayList<Event> typ = kalender.getByType(Eventtype.KONZERT);
@@ -19,6 +20,8 @@ public class EventDemo {
 
         System.out.println("Nach Titel");
         System.out.println(kalender.getByTitle("haha"));
+
+
 
 
     }

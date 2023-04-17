@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EventCalendar {
@@ -9,16 +10,17 @@ public class EventCalendar {
         events.add(e);
     }
 
-    public void print() {
-        for (Event e : events) {
-            System.out.println(e);
-        }
-    }
+
 
     public void print(ArrayList<Event> events) {
-        for (Event e : events) {
-            System.out.println(e);
-        }
+       Iterator<Event> it = events.iterator();
+       while (it.hasNext()){
+           System.out.println(it.next());
+       }
+        System.out.println();
+      //  for (Event e : events) {
+        //    System.out.println(e);
+       // }
     }
 
     public Event getByTitle(String title) {
@@ -56,12 +58,24 @@ public class EventCalendar {
     public Event getMostExpensive() {
         double price = 0;
         Event result = events.get(0);
-        for (Event e : events){
-            if(e.getPreis() > price){
+        for (Event e : events) {
+            if (e.getPreis() > price) {
                 price = e.getPreis();
-                result= e;
+                result = e;
             }
         }
         return result;
     }
+
+    public void removeExpensiveEvent(double limit) {
+        Iterator<Event> it = events.iterator();
+        while (it.hasNext()) {
+            Event event = it.next();
+            if (event.getPreis() > limit) {
+                it.remove();
+            }
+        }
+    }
+
+
 }

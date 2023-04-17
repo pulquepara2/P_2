@@ -1,25 +1,50 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Verwaltung {
-    private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Team> teams = new ArrayList<>();
 
-    public void add(Player p){
-        players.add(p);
+    public void print() {
+        for (Team t : teams) {
+            System.out.println(t);
+            t.print();
+        }
+        System.out.println();
     }
-    public void remove(Player p){
-        players.remove(p);
-    }
-    public Player getPlayerById(int id){
-        Player result = players.get(0);
-        int playerWithId = 0;
-        for(Player p : players){
-            if(p.getId() == id){
-                playerWithId = p.getId();
-                result = p;
+
+    public Team getWinnerTeam() {
+        Team winner = null;
+        int points = 0;
+        for (Team t : teams) {
+            if (t.getPointsPerTeam() > points) {
+                winner = t;
+                points = t.getPointsPerTeam();
             }
         }
-     return result;
+        return winner;
     }
 
-
+    public Player getBestPlayer() {
+        Player best = null;
+        int points = 0;
+        for (Team t : teams) {
+            for (Player p : t.getPlayers()) {
+                if (p.getPoints() > points) {
+                    best = p;
+                    points = p.getPoints();
+                }
+            }
+        }
+        return best;
+    }
+    public Player getPlayerById(int id){
+        for (Team t : teams){
+            for (Player p : t.getPlayers()){
+                if(p.getId() == id){
+                    return p;
+                }
+            }
+        }
+        return null;
+    }
 }
